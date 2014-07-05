@@ -1,0 +1,16 @@
+<ion-view title="Select App" hide-back-button="false">
+
+	<ion-content class="background-color">
+		<div class="list">
+			<div class="list-header">SELECT AN APP</div>
+
+			<label class="item item-radio" ng-repeat="app in apps" ng-click="select(app)">
+				<input type="radio" name="group">
+
+				<div class="item-content">{{app.nombre}}</div>
+				<i class="radio-icon ion-checkmark positive"></i>
+			</label>
+
+		</div>
+	</ion-content>
+</ion-view>

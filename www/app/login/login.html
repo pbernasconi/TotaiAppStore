@@ -1,0 +1,31 @@
+<ion-view title="Login" hide-back-button="true">
+
+	<ion-nav-bar class="bar-stable">
+	</ion-nav-bar>
+	<ion-content>
+
+		<h4 class="text-center">Login to the Totai App Store</h4>
+		<form name="loginForm" ng-submit="login(user)" novalidate>
+			<div class="list">
+				<label class="item item-input">
+					<span class="input-label">Username</span>
+					<input type="text" ng-model="user.usuario">
+				</label>
+				<label class="item item-input">
+					<span class="input-label">Password</span>
+					<input type="password" ng-model="user.contrasena">
+				</label>
+			</div>
+
+			<div class="login-message" ng-show="loginMessage">
+				{{loginMessage}}
+			</div>
+			<div class="padding">
+				<button nav-clear type="submit" class="button button-block button-positive">
+					Log in
+				</button>
+
+			</div>
+		</form>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,34 @@
+.login-message {
+    padding: 10px;
+    text-align: center;
+    color: red;
+}
+
+.list-header {
+    color: #5A595F;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+.list-icon {
+    color: #ccc;
+    font-size: 24px !important;
+    right: 3px !important;
+}
+
+.background-color {
+    background-color: #F0EFF5;
+}
+
+.button-background-white {
+    background-color: white !important;
+}
+
+.input-bind {
+    padding-left: 3px;
+    right: 10px;
+    color: #111;
+    font-size: 14px;
+    line-height: 16px;
+}

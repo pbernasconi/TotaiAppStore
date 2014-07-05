@@ -1,0 +1,52 @@
+<ion-view title="Upload">
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+	<ion-content class="has-header">
+		<div class="list">
+
+			<div class="list-header">CREER NEUVO TRABAJO</div>
+
+			<a class="item item-input item-icon-right" ui-sref="main.upload-app">
+				<span class="input-label">App</span>
+
+				<div class="input-bind">{{app.nombre}}</div>
+				<i class="icon list-icon ion-ios7-arrow-forward"></i>
+			</a>
+
+			<div class="item item-input">
+				<span class="input-label">Device</span>
+
+				<div class="input-bind">{{app.device}}</div>
+			</div>
+			<div class="item item-input">
+				<span class="input-label">OS</span>
+
+				<div class="input-bind">{{app.OS}} {{app.OS_version}}</div>
+			</div>
+
+			<div class="item item-input">
+				<span class="input-label">Cur Version</span>
+
+				<div class="input-bind">{{app.version}}</div>
+			</div>
+
+			<label class="item item-input">
+				<span class="input-label">New Version</span>
+				<input type="text" ng-model="app.version_nuevo">
+			</label>
+		</div>
+
+		<div class="padding-horizontal">
+			<button class="button button-block button-positive" ng-click="uploadPlist(app)">
+				Upload .plist File
+			</button>
+		</div>
+
+		<div class="padding-horizontal">
+			<button class="button button-block button-royal" ng-click="uploadApp(app)">
+				Upload App
+			</button>
+		</div>
+	</ion-content>
+</ion-view>
