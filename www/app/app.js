@@ -3,6 +3,7 @@ angular.module('AppStore', [
   'ionic',
   'http-auth-interceptor',
   'ngResource',
+  'angularFileUpload',
 
 
   'login.ctrl',
@@ -20,9 +21,6 @@ angular.module('AppStore', [
     $rootScope.DB_URL = 'http://www.desa-net.com/TOTAI/db/';
     $rootScope.totaiAppStore = 'http://desa-net.com/totaiAppStore/';
     $rootScope.appName = 'TotaiAppStore';
-    $rootScope.authExpire = "0";
-    $http.defaults.headers.common.Authorization = null;
-
 
     $ionicPlatform.ready(function () {
       if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -38,10 +36,8 @@ angular.module('AppStore', [
       if (!AuthService.isAuthorized(authorizedRoles)) {
         //event.preventDefault();
         if (AuthService.isAuthenticated()) {
-          // user is not allowed
           $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
         } else {
-          // user is not logged in
           $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
         }
       }

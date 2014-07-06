@@ -32,3 +32,55 @@
     font-size: 14px;
     line-height: 16px;
 }
+
+.fileupload {
+    width: 100px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.fileupload-button {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    border-color: #b2b2b2;
+    background-color: #f8f8f8;
+    color: #444;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0 12px;
+    min-width: 52px;
+    min-height: 47px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    vertical-align: top;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    line-height: 42px;
+    cursor: pointer;
+}
+
+.fileupload-button-disabled {
+    opacity: 0.4;
+    cursor: default !important;
+    pointer-events: none;
+}
+
+.fileupload-button-block {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.fileupload input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    opacity: 0.0;
+    filter: alpha(opacity=0);
+    font-size: 300px;
+    height: 200px;
+}

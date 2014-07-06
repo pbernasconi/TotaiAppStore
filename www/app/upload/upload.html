@@ -33,20 +33,27 @@
 
 			<label class="item item-input">
 				<span class="input-label">New Version</span>
-				<input type="text" ng-model="app.version_nuevo">
+				<input type="text" ng-model="app.version_nuevo"/>
 			</label>
 		</div>
 
-		<div class="padding-horizontal">
-			<button class="button button-block button-positive" ng-click="uploadPlist(app)">
-				Upload .plist File
-			</button>
+		<div class="" ng-show="invalidForm(app) == true">
+			{{errorMessage}}
+		</div>
+
+		<div class="padding-horizontal" >
+			<div class="fileupload fileupload-button fileupload-button-block" ng-class="{ true: 'fileupload-button-disabled'}[invalidForm(app)]" >
+				<input type="file" ng-file-select="plistSelect($files)"  ng-disabled="invalidForm(app)" />
+				Upload Plist
+			</div>
 		</div>
 
 		<div class="padding-horizontal">
-			<button class="button button-block button-royal" ng-click="uploadApp(app)">
+			<div class="fileupload fileupload-button fileupload-button-block" ng-class="{ true: 'fileupload-button-disabled'}[invalidForm(app)]" >
+				<input type="file" ng-file-select="onFileSelect($files)"  ng-disabled="invalidForm(app)"/>
 				Upload App
-			</button>
+			</div>
 		</div>
+
 	</ion-content>
 </ion-view>

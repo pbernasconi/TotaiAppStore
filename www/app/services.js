@@ -2,9 +2,23 @@ angular.module('AppStore.services', [])
 
 
   .factory('Apps', function ($rootScope, $resource) {
-    return $resource('http://www.desa-net.com/TOTAI/db/apps/:SEQ', {}, {
+    return $resource('http://www.desa-net.com/TOTAI/db/apps/:SEQ:verb', {}, {
         getAll: {method: 'GET', isArray: true},
         getOne: {method: 'GET', params: {SEQ: '@SEQ'}},
+        getIcon: {method: 'GET', params: {verb: 'getIcon', version: '@version', apps_SEQ: '@apps_SEQ'}, isArray: false},
+        findByName: {method: 'GET', params: {query: '@query'}, isArray: true},
+        update: {method: 'POST', params: {SEQ: '@SEQ'}},
+        new: {method: 'POST'},
+        delete: {method: 'DELETE', params: {SEQ: '@SEQ'}}
+      }
+    );
+  })
+
+  .factory('AppsAmazonS3', function ($rootScope, $resource) {
+    return $resource('http://www.desa-net.com/TOTAI/db/apps_amazonS3/:SEQ:verb', {}, {
+        getAll: {method: 'GET', isArray: true},
+        getOne: {method: 'GET', params: {SEQ: '@SEQ'}},
+        getWithVersion: {method: 'GET', params: {verb: 'get', version: '@version', apps_SEQ: '@apps_SEQ'}, isArray: true},
         findByName: {method: 'GET', params: {query: '@query'}, isArray: true},
         update: {method: 'POST', params: {SEQ: '@SEQ'}},
         new: {method: 'POST'},
@@ -16,7 +30,8 @@ angular.module('AppStore.services', [])
 
   .factory('Upload', function ($rootScope, $http) {
 
-    this.create = function (nombre, device, OS, OS_version, version, version_antigua, version_nuevo) {
+    this.create = function (apps_SEQ, nombre, device, OS, OS_version, version, version_antigua, version_nuevo) {
+      this.apps_SEQ = apps_SEQ;
       this.nombre = nombre;
       this.device = device;
       this.OS = OS;
@@ -26,6 +41,7 @@ angular.module('AppStore.services', [])
       this.version_nuevo = version_nuevo;
     };
     this.destroy = function () {
+      this.apps_SEQ = null;
       this.nombre = null;
       this.device = null;
       this.OS = null;

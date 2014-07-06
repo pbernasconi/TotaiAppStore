@@ -5,27 +5,28 @@
 
 	<ion-content class="has-header padding">
 
-		<div class="card">
+		<div class="card" ng-repeat="app in apps">
 			<div class="item item-divider">
-				<h2>Trucking App</h2>
-			</div>
-			<div class="item">
-				<a class="button button-positive button-block" href="itms-services://?action=download-manifest&url=https://s3.amazonaws.com/TotaiAppStore/Trucking.plist">
-					Install Application
-				</a>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="item item-divider">
-				<h2>Other App</h2>
+				<h2>{{app.nombre}}</h2>
 			</div>
 
 			<div class="item">
-				<a class="button button-positive button-block" href="itms-services://?action=download-manifest&url=https://s3.amazows.com/TotaiAppStore/Trucking.plist">
-					Install Application
-				</a>
+				<div class="row">
+					<div class="col">
+						<img style='height: 110px; width: 110px;' ng-src="{{app.icon}}">
+					</div>
+					<div class="col item-button-right">
+						<br>
+						<a class="button button-positive" ng-href="itms-services://?action=download-manifest&url={{app.url}}">
+							Install
+						</a>
+						<br>
+						<p class='text-right'>v {{app.version}}</p>
+						<p class='text-right'>{{app.version_fecha_hora | date }}</p>
+					</div>
+				</div>
 			</div>
 		</div>
+
 	</ion-content>
 </ion-view>
