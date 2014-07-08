@@ -3,7 +3,7 @@
 		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 	</ion-nav-buttons>
 
-	<ion-content class="has-header padding">
+	<ion-content class="has-header background-color padding">
 
 		<div class="card" ng-repeat="app in apps">
 			<div class="item item-divider">
@@ -22,7 +22,7 @@
 						</a>
 						<br>
 						<p class='text-right'>v {{app.version}}</p>
-						<p class='text-right'>{{app.version_fecha_hora | date }}</p>
+						<p class='text-right'>{{app.version_fecha_hora | date : 'yyyy-MM-dd'}}</p>
 					</div>
 				</div>
 			</div>

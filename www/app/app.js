@@ -71,7 +71,6 @@ angular.module('AppStore', [
       .state('login', {
         abstract: true,
         template: "<ui-view/>"
-
       })
 
       .state('login.login', {
